@@ -1,0 +1,35 @@
+Architecture:
+                        http: Json Format             Drivers executes the commands in browser
+Selenium Client Library -----------------> Browser Drivers -------------------> Browser
+                     Driver sends the response
+                     to browser in json format            Response back to driver  |
+                    <------------------------             <------------------------
+                    
+                    
+Explanation:
+
+1) Once we triggered our test from the client(We can say client here is IDE), It call's the Selenium
+   WebDriver Library and here our entire written code is converted to Json format
+   and this json body is sent to Browser drivers via http request.
+   
+2) Browser drivers are the servers, separate browser drivers are available for each browsers(EX: ChromeDriver is available for chrome browser).
+
+3) Respective drivers are responsible to launch it's browsers and executes the commands on the browser then responses will
+   sent back to the drivers and the drivers send the response to client in the json format. And the client convert the Json response
+   to the plain English text.
+   
+   
+ From Selenium 4 onwards, Instead of Json wire protocol they are using W3C protocol to communicate with the browser. Now the 
+ direct communication will happen between the client and browser using w3c protocol. Here it call's the selenium webdriver library and it
+ coverts the script's(Ex: getText(), click() etc) into json format and it send's the series of http request with Json body directly to
+ the browser instead of drivers.
+ 
+ Selenium 3:
+       1) Json Wire Protocol (Selenium Standard)
+       2) Execution time is high
+       3) Some browsers may behave differently
+
+ Selenium 4:
+        1) W3C protocol (Industry Standard), if we develop any web page, web browsers have to follow the W3C standards.
+        2) It's the standard protocol across the browsers, So all the browsers behave same
+        3) Execution time is less, because it directly sends the requests to the browser.

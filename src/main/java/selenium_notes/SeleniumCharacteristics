@@ -1,0 +1,14 @@
+Why Selenium?
+   1) It is open source Automation tool
+   2) Used to automate web based applications, when means it won't automate desktop, mobile applications
+   3) It supports multiple browsers. EX: Chrome, Firefox, Edge, Safari
+   4) It supports multiple platforms. EX: Windows, Mac Os, Linux
+   5) It supports multiple programming languages. Ex: Java, Python, Ruby, C#, Javascript, PHP
+   
+Difference between  Selenium and Selenium Webdriver:
+    Selenium is a suite of tools used to automate web applications.
+Suite of tools, What actually it mean?
+Selenium is having Selenium Webdriver, Selenium RC, Selenium IDE, Selenium Grid. Here RC is deprecated. these all are the tools available in Selenium.
+
+So we conclude that, Selenium is a parent and Selenium Webdriver is a child of Selenium.
+
