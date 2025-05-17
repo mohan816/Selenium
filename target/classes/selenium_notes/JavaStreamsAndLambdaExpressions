@@ -1,0 +1,20 @@
+What are Streams?
+   It was introduced in Java 8, and it is used to perform aggregate operations on the data returned from the collection
+   classes by drastically reduce the complexity of code.
+   
+What is Lambda Expression?
+   Lambda expressions introduce the new arrow operator -> into java. It divides the lambda expressions in two parts
+   1) The left side specifies the parameters required by the expression, which could also be empty if no parameters are required.
+   2) The right side is the lambda body which specifies the actions of the lambda expressions.
+   
+The working of stream can be explained in three stages:
+ 
+1) Create a Stream
+2) Perform intermediate operations on the initial stream to transform into another stream
+3) Perform terminal operation on the final stream to get the result.
+
+An important characteristic of intermediate operations is laziness, When executing this code snippet nothing is printed
+to the console. This is because intermediate operations will only be executed when a terminal operation is present.
+
+Note: The aggregate operations that we perform on the collection, array that do not change the data in the source, they simply
+return a new stream.

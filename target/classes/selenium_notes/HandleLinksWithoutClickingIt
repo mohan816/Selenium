@@ -1,0 +1,21 @@
+To check whether the link is valid or broken, what actually we do, first we click on the link and get the title of the link
+if title contains 404 then simply we say the link is broken, and we do the same for all the links.
+
+Without clicking the link we can identify it whether it's valid or not by using openConnection() method of java which is 
+present in URL class.
+
+code to handle this:
+   first we get all links from the DOM
+   List<WebElement> links = driver.findElements(By.cssSelector("li[class='gf-li'] a"));
+  
+   we can use SoftAssert so that even it failed it will continue to work
+   SoftAssert assert = new SoftAssert();
+   
+   for(WebElement link: links){
+      String url = link.getDOMAttribute("href");
+      HttpURLConnection conn = (HttpURLConnection)new URL(url).openConnection();
+      conn.connect();
+      int respCode = conn.getResponseCode();
+      assert.assertTrue(respCode < 400, "The link with text" +link.getText()+"is broken with status code"+respCode);
+   }
+   assert.assertAll();

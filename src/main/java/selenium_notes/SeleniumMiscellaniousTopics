@@ -1,0 +1,23 @@
+How to handle SSL certifications:
+1) Create an object for ChromeOptions, if it's firefox then FirefoxOptions and for Edge it's EdgeOptions
+2) Then call the method setAcceptInsecureCerts and pass true as the argument.
+
+  ChromeOptions option = new ChromeOptions();
+  option.setAcceptInsecureCerts(true);
+  ChromeDriver driver = new ChromeDriver(option);
+  
+  To add the extensions
+  option.addExtensions(Path of the extension)
+  
+  To handle the proxy, Create an Object for Proxy class and call  the required functions 
+  Proxy proxy = new Proxy();
+		proxy.setHttpProxy(null);
+		option.setProxy(proxy)
+		
+To block the pop-ups
+option.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+
+To download in any specific directory
+Map<String, Object> prefs = new HashMap<String, Object>();
+prefs.put("download.default_directory", "/directory/path");
+option.setExperimentalOption("prefs", prefs);

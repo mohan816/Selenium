@@ -1,0 +1,31 @@
+In Selenium, we have the WebDriver interface which have all the selenium methods.
+
+Each driver implements the WebDriver interface and implement those abstract methods. The implementation may be different on each drivers
+but the purpose of those functions are same.(Ex: getTitle(), getText(), getCurrentUrl() etc)
+
+Different kinds of Drivers:
+  1) ChromeDriver
+  2) FirefoxDriver
+  3) EdgeDriver etc. (safari, opera)
+  
+ChromeDriver: It implements the WebDriver Interface, To invoke Chrome Browser we have to use below piece of code
+    
+    ChromeDriver driver = new ChromeDriver();, This code will install the driver which is compatible to the current browser version
+    and launch and execute. If there are restriction's in the organization to use driver version's then we have to use setProperty function.
+    Before downloading the driver it will check whether we have setProperty() function, if it's there then it will simply use the driver which
+    is mentioned in the setProperty(), if not then it will download it
+    
+    System.setProperty("webdriver.chrome.driver", "location_of_the_driver_in_local")
+    
+ Firefox:
+    FirefoxDriver driver = new FirefoxDriver();
+    System.setProperty("webdriver.gecko.driver", "location_of_the_gecko_driver")
+    
+ Edge:
+    EdgeDriver driver = new EdgeDriver();
+    System.setProperty("webdriver.edge.driver", "location_of_the_edge_driver");
+    
+
+    
+    
+ 

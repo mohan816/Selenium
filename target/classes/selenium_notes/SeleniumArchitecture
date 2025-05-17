@@ -21,8 +21,8 @@ Explanation:
    
  From Selenium 4 onwards, Instead of Json wire protocol they are using W3C protocol to communicate with the browser. Now the 
  direct communication will happen between the client and browser using w3c protocol. Here it call's the selenium webdriver library and it
- coverts the script's(Ex: getText(), click() etc) into json format and it send's the series of http request with Json body directly to
- the browser instead of drivers.
+ coverts the script's(Ex: getText(), click() etc) into W3C protocol format and it send's the series of http request to the respective drivers
+ and it calls the browsers and execute it.
  
  Selenium 3:
        1) Json Wire Protocol (Selenium Standard)

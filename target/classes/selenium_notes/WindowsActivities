@@ -1,0 +1,15 @@
+To maximize the window: driver.manage().window().maximize()
+To minimize the window: driver().manage().window().minimize()
+
+Difference between get() and navigate().to()
+   If we use get(), then it will wait for all the components to fully load in the browser, but if we navigate().to() then it
+   won't wait for all the elements to fully load.
+   
+driver.navigate().back() -> It will go to the previous page
+driver.navigate().forward() -> It will go the next page.
+
+
+Example: I opened one url and then again I opened another Url on the same window. Now my control is in the new url
+if I want to go the previously opened url then I have to use driver.navigate().back(). Now it will be in the first opened
+url if I want to go the second opened url then I have to use driver.navigate().forward().
+

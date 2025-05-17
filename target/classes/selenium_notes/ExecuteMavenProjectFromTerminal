@@ -1,0 +1,13 @@
+1) First we required the maven surefire plugin, just browse it and add in the pom.xml
+2) Usually we have multiple xml files to execute right, so what we have to do create profile and the give
+   the name for it and Add the surefire plugin within it.
+3) Then in the terminal, navigate to the project and execute the command mvn test -P(ProfileName), it will
+   help us to execute in terminal
+
+Set global data from Maven:
+
+1) We read the global data from properties file right, in our framework we are getting the browser name from properties
+   file instead we can set it from terminal using this command mvn test -P(ProfileName) -D(browserName)
+   
+   For test script to understand that we have to get the data from maven command, we have to use below piece of 
+   code, EX: System.getProperty("browserName), it will help us to read the data from the terminal.

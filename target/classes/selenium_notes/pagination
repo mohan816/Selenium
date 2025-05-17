@@ -1,0 +1,21 @@
+When comes to pagination, we have to find a particular element if the element is not present then we have to navigate
+to next by clicking next button and so on until we find that element or till we reach the last page.
+
+So here we use do while loop, first we search for the elment if the element is present then we perform some action over there
+if not we continue the loop
+
+
+Sample Code: We are searching for a particular product in the table and we perform pagination as well
+
+List<WebElement> products =  driver.findElements(By.xpath("//tr/td[1]");
+
+List<String> actualProductSize;
+do{
+   List<WebElement> row =  driver.findElements(By.xpath("//tr/td[1]");
+    actualProductSize = products.stream().filter(name -> name.getText().contains("Rice")).collect(Collectors.toList());
+   if(actualProductSize.size() < 1){
+       driver.findElement(By.xpath("")).click();
+   }
+}while(actualProductSize.size() < 1);
+
+Assert.assertTrue(products.size(), actualProductSize.size());

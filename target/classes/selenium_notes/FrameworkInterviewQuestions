@@ -1,0 +1,77 @@
+Framework used in your project:
+   1) We used Page Object Model design pattern in our framework, here we create separate java class for each pages and in
+   each pages we have functions to perform the specific actions.
+   
+   2) And also we are using Page factory design pattern which is the subset of POM, to derive the webelements using @FindBy annotations and also instead
+      of creating objects in the test cases we create objects in the last action methods of pages class if we know that action navigates to the next page.
+      
+2) How are reusable utilities handled in the framework?
+   We have separate reusable classes for selenium actions and test case resuable functions(Initialize Driver, Take Screenshot, extent report utilities etc)
+   All selenium actions are there in the separate class called Abstract componets and are used by page objects and test cases reusable functions are there
+   base test. With the help of inheritance we are using the common classes to the page objects and the test cases.
+   
+3) Where did you use Inheritance OOPS concept in your framework?
+    We use Inheritance concepts in Page objects and the test cases. In Page Objects it's using inheritance to get the selenium
+    reusable actions and in the test cases it's extending the base test(In base we have the methods which are reusable by
+    different test cases)
+ 
+4) How did you drive the data from external files in the framework?
+   We are reading the test data from the Json files. We have the separate utilities to read the test data from json file.
+   At first we convert Json file to the String using FileUtils.readFileToString(create an object to the file and pass the path
+   of the json file). Then we use ObjectMapper class from Jackson databind to convert the string to List of Hash Map.
+   Then we call this utilities from the test class file where we have have the separate function to read the data and it's return
+   the data in multi dimensional object array. With the help of Data Provider annotation and dataProvider attribute we have
+   to pass the data to the test case.
+   
+   String jsonContent = FileUtils.readFileToString(new File(System.getProperty("user.dir")+path),
+				StandardCharsets.UTF_8);
+		ObjectMapper mapper = new ObjectMapper();
+	
+		return mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>() {});
+
+5) Did you use Interfaces in the framework?
+    Yes, WebDriver itself is an interface and selenium people extended this interface to create different driver classes.
+    Apart from this we are using testng interfaces like ITestListener and IRetryAnalyzer. ITestListener helps us to take 
+    the screenshot of the failed test cases. And also before starting the execution of the test case we fetch the test case
+    details and add in the reports etc. We use IRetryAnalyzer to retry the failed test cases.
+    
+6) How are you achieving Encapsulation in the framework?
+    By declaring the WebElement's as private and the action methods are public. We want others to use the functions and not
+    the web elements in other classes. For an example I have the webelement call submit which is used to click the submit
+    button. In submit function I used this webelement and added the logic to navigate the page to the home page. If someone
+    uses the submit webelement then it won't help them to navigate to the next page. So in order to avoid this kind of
+    confusion it's always preferred to declare the variables as private in the classes.
+    
+7) Does your framework support Parallel runs? and How are you using thread local?
+    Yes, We execute our test's in parallel, by using parallel="test" in the suite level. We are achieving thread safe by using
+    thread local class. We have the code for create report in the listeners there multiple threads can access it at the same
+    time so we implemented Thread Local concept over there. By using setters and getters with the help of thread id's.
+    
+8) Do you have static keywords in the framework? If so, its usage?
+   If we have the scenario where have to share the value across multiple threads then we declare it using the static keyword,
+   so that we can reduce the memory usage.
+
+
+9) How are you sending global properties to your test at run time?
+   We are having the class called Properties in Java, which is used to load all the .properties file. Simply we have to create
+   an object for the Properties class and Create an Object for the FileInputStream there we have to pass the location of the
+   file and just load it using Properties.load function. then get it by using getProperty()
+   
+10) What is the mechanism you use to run only selected set of tests inside the framework?
+     With the help of testng groups attribute we can achieve it. Just group the test cases with the common name using group
+     attribute and in the xml file just declare it by using groups tag.
+     
+11) How are you handling Flaky tests in the framework?
+    By using IRetryAnalyzer interface, we have to implement the this interface and the test which is failing randomly then
+    just use retryAnalyzer attribute and pass the implemented class of name of IRetryAnalyzer.
+    
+12) Does you framework take Screenshot on  test failures? How did you implement it?
+    Yes, It will take we used ITestListener there we have the function called onTestFailure there we implemented the logic of
+    screenshot. Whenever the test cases failed it come there and takes the screenshot.
+    
+13) Explain Framework Architecture?
+
+    
+  
+   
+ 

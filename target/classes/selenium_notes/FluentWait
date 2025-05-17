@@ -1,0 +1,21 @@
+Fluent wait comes under explicit wait, there are two types of explicit wait namely
+    1) WebDriverWait
+    2) FluentWait
+ Both these wait's implements the Wait interface
+    
+When comes to WebDriverWait it will check the web element each milli-seconds but when comes to fluent wait it will check
+the DOM in the regular interval time until it founds the object or till the TimeOutException.
+
+1) First we have to create an object for it.
+     Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeOut(Duration.ofSeconds(30)).pollingEvery(Duration.of
+     Seconds(10)).ignoring(NoSuchElementException.class)
+     
+2) Then implement the own method
+        wait.until(new Function<WebDriver, WebElement>() {
+           public WebElement apply(WebDriver driver){
+              return driver.findElement(By.xpath("//button[@class='submit']")).getText();
+           }
+        });
+
+
+

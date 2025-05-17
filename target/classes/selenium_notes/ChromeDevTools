@@ -1,0 +1,21 @@
+Chrome Dev Tools are when we click on inspect button then we can see different tabs like elements, console, network, performance etc these
+all are called Chrome Dev Tools.
+Defintion: It is a set of web developer tools built directly into the Google Chrome Browser, with Chrome DevTools , developers have deeper 
+access to the applications which render on browser.
+
+CDP: It stands for Chrome Developer Tools Protocol which is getting the info about the Chrome Dev tools
+
+Now selenium people created the Wrapper around CDP, so that using selenium test scripts we can get info about all those chrome dev tools
+
+Chromium Driver has predefined methods to access the Dev Tools. Chrome and Edge Browser are inherited from Chromium Driver, so we can use
+this browser's to access Chrome Dev Tools. Chrome and Edge browser are based on Chromium Engine.
+
+If selenium don't have the predefined implementation for any of the Chrome Dev Tool function, then we can create it with the below code:
+
+We have the function called executeCDPCommand(String, Map), have to use it.
+
+
+
+
+
+

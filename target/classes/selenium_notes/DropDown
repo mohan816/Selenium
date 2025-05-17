@@ -1,0 +1,41 @@
+Except static drop down's we have to handle all the dropdown's in normal like locating elements and clicking it.
+
+Static drop-downs are with the tag Select, so we have to locate it, then create an Object for the Select class and pass
+the locator to it. Then using below three methods we have to select it
+  1) selectByValue() 2) selectByVisibleText() 3) selectByIndex
+  
+Frames: If the identified locator is correct, but we get NoSuchElementException then we have to verify that an element is 
+present inside the iframe, if it's in iFrame then we have to switch to the frame and perform the action. Once the action
+is done then  we have to come out of the frame.
+
+driver.switchTo().frame(), by passing  the index or id or by locating the element.
+driver.switchTo().deafultContent() -> To come out of the frame.
+
+Windows: getWindowHandle() -> To get the current window reference, if there are multiple windows then we have to
+use getWindowHandles() method.
+    driver.switchTo().window(referenceId)
+Set<String> windowsReference = driver.getWindowHandles();
+Iterator<String> it = windowsReference.iterator();
+while(it.hasNext()){
+   driver.switchTo().window(it.next());
+}
+
+
+Links: We can identify the links using the tagName a. To open the link in new tab String click = Keys.chord(Keys.CTRL, Keys.ENTER);
+driver.findElement(By.tagName("a").sendKeys(click); -> In this way we can open the link in the new tab.
+
+To identify the header links, Locate the header WebElement, from there we can identify the links
+
+WebElement header = driver.findElement(By.name("header"));
+header.findElements(By.tagName("a")).size();
+
+
+Java Script Executor: If the window is not in the visible range then we have to ask the driver to execute the java script code.
+At first we have to typecast the driver to JavaScriptExecutor
+
+JavaScriptExecutor js = (JavaScriptExecutor)driver;
+To scroll down the window, then we have to use
+js.executeScript("window.scrollBy(0, 500)");
+
+To scroll down the particular WebElement, we have to locate the element and have to apply the respective functions
+js.executeScript("document.querySelector('.tableFixed').scrollTop=500");

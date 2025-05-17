@@ -1,0 +1,23 @@
+Eight types of Locators:
+
+id, name, className, cssSelector, xpath, tagName, linkText, partialLinkText
+
+Css Selector for id:
+tagname#id
+
+Css selector for class:
+tagname.className
+
+Css selector for attribute:
+tagname[attribute='value']
+
+Regular Expression css selector: We have the attribute called type and having value "pass124", next time it will chnage to
+pass345. So in this case we have to use below css selector
+
+tagname[attribute*='value']
+input[type*='pass']
+
+In xpath for tagName we use //tagName and in css simply put tagName
+
+There is no css to identify the web elements using the visible text and also it's not possible to traverse back from child to
+parent in css

@@ -1,0 +1,21 @@
+Selenium Relative Locators:
+above(WebElement) -> Element located above with respect to the specified element
+below(WebElement) -> Element located below with respect to the specified element
+toLeftOf(WebElement) -> Element located to the left of the specified element
+toRightOf(WebElement) -> Element located to the right of the specified element
+near(WebElement)
+
+Invoke multiple windows:
+  driver.switchTo().newWindow(WindowType.WINDOW) -> It will open in the new window
+  driver.switchTo().newWindow(WindowType.TAB) -> It will open in the new tab
+  
+Take screenshot of a WebElement:
+   WebElement ele = driver.findElement(By.xpath(""));
+   File file = ele.getScreenshotAs(OutputType.file);
+   FileUtils.copyFile(file, new File("./reports/mohan.png");
+   
+Get the height and width of the WebElement
+    ele.getRect().getDimension().getHeight();
+    ele.getRect().getDimension().getWidth();
+    
+ 
